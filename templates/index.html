@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intelligent Supply Chain &amp; Warehouse Management System</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%23119B78'/><path d='M12 4l7 4v8l-7 4-7-4V8z' fill='none' stroke='white' stroke-width='1.8' stroke-linejoin='round'/></svg>">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('scwms-theme')||'light'}catch(e){}</script>
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<section id="login-screen" hidden>
+  <div class="login-art">
+    <div class="login-brand"><span class="logo-mark"></span><b>SupplyChain&nbsp;WMS</b></div>
+    <h1>Intelligent Supply Chain<br>&amp; Warehouse Management</h1>
+    <p>Multi-warehouse inventory, FIFO order queues, shipments, purchasing and analytics - built on a hand-written Queue data structure.</p>
+    <div class="login-pills"><span>FIFO Queue core</span><span>5 warehouses</span><span>Live analytics</span><span>Role based access</span></div>
+    <div class="login-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <small>Mehran UET · Software Engineering · SW 212 Data Structures &amp; Algorithms · OEL</small>
+  </div>
+  <form class="login-card" id="login-form" autocomplete="on">
+    <h2>Welcome back</h2>
+    <p class="muted">Sign in to continue to your workspace</p>
+    <div class="login-error" id="login-error" hidden></div>
+    <label class="fl"><span>Username</span><input name="username" id="lg-user" required autocomplete="username" placeholder="e.g. admin"></label>
+    <label class="fl"><span>Password</span><input name="password" id="lg-pass" type="password" required autocomplete="current-password" placeholder="Your password"></label>
+    <button class="btn primary lg" id="lg-btn" type="submit">Sign in</button>
+    <div class="demo-box">
+      <div class="demo-title">Demo accounts <small>(click to fill)</small></div>
+      <button type="button" class="demo" data-u="admin" data-p="admin123"><b>Administrator</b><span>admin / admin123</span></button>
+      <button type="button" class="demo" data-u="manager1" data-p="manager123"><b>Warehouse Manager</b><span>manager1 / manager123 · Karachi</span></button>
+      <button type="button" class="demo" data-u="employee1" data-p="employee123"><b>Warehouse Employee</b><span>employee1 / employee123 · Karachi</span></button>
+    </div>
+  </form>
+</section>
+
+<!-- ===================== APP ===================== -->
+<div id="app" hidden>
+  <aside id="sidebar">
+    <div class="sb-head"><span class="logo-mark"></span><div class="sb-brand"><b>SupplyChain WMS</b><small>Warehouse Suite</small></div></div>
+    <nav id="nav"></nav>
+    <div class="sb-foot">
+      <div class="queue-chip"><span class="dot"></span><div><b>FIFO Queue Engine</b><small>Group C · Queue</small></div></div>
+    </div>
+  </aside>
+  <div id="scrim"></div>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" id="btn-menu" title="Toggle sidebar"></button>
+      <div class="search-wrap">
+        <span class="search-ic" id="search-ic"></span>
+        <input id="global-search" placeholder="Search products, SKU, orders, shipments…" autocomplete="off">
+        <div class="search-drop" id="search-drop" hidden></div>
+      </div>
+      <div class="top-right">
+        <button class="icon-btn" id="btn-theme" title="Light / dark mode"></button>
+        <div class="dd-wrap">
+          <button class="icon-btn" id="btn-bell" title="Notifications"><span class="bell-badge" id="bell-badge" hidden>0</span></button>
+          <div class="dd notif-dd" id="notif-dd" hidden></div>
+        </div>
+        <div class="dd-wrap">
+          <button class="user-btn" id="btn-user"></button>
+          <div class="dd user-dd" id="user-dd" hidden></div>
+        </div>
+      </div>
+    </header>
+    <main id="view"></main>
+  </div>
+</div>
+
+<div id="modal-root"></div>
+<div id="toasts"></div>
+
+<script src="{{ url_for('static', filename='js/chart.umd.js') }}"></script>
+<script src="{{ url_for('static', filename='js/icons.js') }}"></script>
+<script src="{{ url_for('static', filename='js/core.js') }}"></script>
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages_a.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages_b.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pages_c.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
